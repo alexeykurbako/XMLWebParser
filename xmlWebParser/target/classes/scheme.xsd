@@ -1,0 +1,233 @@
+<?xml version = "1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.example.com/candies"
+           xmlns:tns="http://www.example.com/candies"
+           elementFormDefault="qualified">
+
+        <xs:complexType name = "FilledSweet">
+            <xs:sequence>
+                <xs:element name="energy" type="xs:double"/>
+                <xs:element name="value" type="tns:Value"/>
+                <xs:element name="production" type="tns:Producers"/>
+                <xs:element name="filling-weight" type="xs:positiveInteger"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+        </xs:complexType>
+
+        <xs:complexType name="ChocolateSweet">
+            <xs:sequence>
+                <xs:element name="energy" type="xs:double"/>
+                <xs:element name="value" type="tns:Value"/>
+                <xs:element name="production" type="tns:Producers"/>
+                <xs:element name="chocolate-type" type="tns:ChocolateTypes"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+        </xs:complexType>
+
+    <xs:simpleType name="ChocolateTypes">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="MILK"/>
+            <xs:enumeration value="DARK"/>
+            <xs:enumeration value="BLACK"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Producers">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="KOMMUNARKA"/>
+            <xs:enumeration value="SPARTAK"/>
+            <xs:enumeration value="ROSHEN"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Value">
+        <xs:sequence>
+            <xs:element name="proteins">
+                <xs:simpleType>
+                    <xs:restriction base="xs:int">
+                        <xs:minInclusive value="0"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="fats">
+                <xs:simpleType>
+                    <xs:restriction base="xs:int">
+                        <xs:minInclusive value="0"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="carbohydrates">
+                <xs:simpleType>
+                    <xs:restriction base="xs:int">
+                        <xs:minInclusive value="0"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:element name="candies">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="filled-sweet" type="tns:FilledSweet" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element name="chocolate-sweet" type="tns:ChocolateSweet" maxOccurs="unbounded" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>
+
+
+
+        <!--<?xml version = "1.0" encoding="UTF-8" ?>-->
+<!--<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"-->
+           <!--xmlns:candies="http://epam.com/candies"-->
+           <!--targetNamespace="http://epam.com/candies">-->
+
+    <!--<xs:simpleType name="ChocolateTypes">-->
+    <!--<xs:restriction base="xs:string">-->
+    <!--<xs:enumeration value="MILK"/>-->
+    <!--<xs:enumeration value="DARK"/>-->
+    <!--<xs:enumeration value="BLACK"/>-->
+    <!--</xs:restriction>-->
+    <!--</xs:simpleType>-->
+
+    <!--<xs:complexType name="Value">-->
+    <!--<xs:sequence>-->
+    <!--<xs:element name="proteins">-->
+    <!--<xs:simpleType>-->
+    <!--<xs:restriction base="xs:int">-->
+    <!--<xs:minInclusive value="0"/>-->
+    <!--</xs:restriction>-->
+    <!--</xs:simpleType>-->
+    <!--</xs:element>-->
+    <!--<xs:element name="fats">-->
+    <!--<xs:simpleType>-->
+    <!--<xs:restriction base="xs:int">-->
+    <!--<xs:minInclusive value="0"/>-->
+    <!--</xs:restriction>-->
+    <!--</xs:simpleType>-->
+    <!--</xs:element>-->
+    <!--<xs:element name="carbohydrates">-->
+    <!--<xs:simpleType>-->
+    <!--<xs:restriction base="xs:int">-->
+    <!--<xs:minInclusive value="0"/>-->
+    <!--</xs:restriction>-->
+    <!--</xs:simpleType>-->
+    <!--</xs:element>-->
+    <!--</xs:sequence>-->
+    <!--</xs:complexType>-->
+    <!--<xs:simpleType name="Producers">-->
+    <!--<xs:restriction base="xs:string">-->
+    <!--<xs:enumeration value="KOMMUNARKA"/>-->
+    <!--<xs:enumeration value="SPARTAK"/>-->
+    <!--<xs:enumeration value="ROSHEN"/>-->
+    <!--</xs:restriction>-->
+    <!--</xs:simpleType>-->
+
+    <!--<xs:element name="filled-sweet">-->
+        <!--<xs:complexType>-->
+            <!--<xs:attribute name="name" type="xs:string" use="required"/>-->
+                <!--<xs:sequence>-->
+                    <!--<xs:element name="energy" type="xs:double"></xs:element>-->
+                    <!--<xs:element name="value" type="candies:Value"></xs:element>-->
+                    <!--<xs:element name="production" type="candies:Producers"></xs:element>-->
+                    <!--<xs:element name="filling-weight" type="xs:positiveInteger"></xs:element>-->
+                <!--</xs:sequence>-->
+        <!--</xs:complexType>-->
+    <!--</xs:element>-->
+
+    <!--<xs:element name="chocolate-sweet">-->
+        <!--<xs:complexType>-->
+            <!--<xs:attribute name="name" type="xs:string" use="required"/>-->
+                <!--<xs:sequence>-->
+                    <!--<xs:element name="energy" type="xs:double"></xs:element>-->
+                    <!--<xs:element name="value" type="candies:Value"></xs:element>-->
+                    <!--<xs:element name="production" type="candies:Producers"></xs:element>-->
+                    <!--<xs:element name="chocolate-type" type="candies:ChocolateTypes"></xs:element>-->
+                <!--</xs:sequence>-->
+    <!--</xs:complexType>-->
+    <!--</xs:element>-->
+
+    <!--<xs:element name="energy">-->
+        <!--<xs:simpleType>-->
+            <!--<xs:restriction base="xs:int">-->
+                <!--<xs:minInclusive value="0"/>-->
+            <!--</xs:restriction>-->
+        <!--</xs:simpleType>-->
+    <!--</xs:element>-->
+
+    <!--<xs:element name="value">-->
+        <!--<xs:complexType>-->
+            <!--<xs:sequence>-->
+                <!--<xs:element name="proteins">-->
+                    <!--<xs:simpleType>-->
+                        <!--<xs:restriction base="xs:int">-->
+                            <!--<xs:minInclusive value="0"/>-->
+                        <!--</xs:restriction>-->
+                    <!--</xs:simpleType>-->
+                <!--</xs:element>-->
+                <!--<xs:element name="fats">-->
+                    <!--<xs:simpleType>-->
+                        <!--<xs:restriction base="xs:int">-->
+                            <!--<xs:minInclusive value="0"/>-->
+                        <!--</xs:restriction>-->
+                    <!--</xs:simpleType>-->
+                <!--</xs:element>-->
+                <!--<xs:element name="carbohydrates">-->
+                    <!--<xs:simpleType>-->
+                        <!--<xs:restriction base="xs:int">-->
+                            <!--<xs:minInclusive value="0"/>-->
+                        <!--</xs:restriction>-->
+                    <!--</xs:simpleType>-->
+                <!--</xs:element>-->
+            <!--</xs:sequence>-->
+        <!--</xs:complexType>-->
+    <!--</xs:element>-->
+
+    <!--<xs:element name="production" >-->
+        <!--<xs:simpleType>-->
+            <!--<xs:restriction base="xs:string">-->
+                <!--<xs:enumeration value="KOMMUNARKA"/>-->
+                <!--<xs:enumeration value="SPARTAK"/>-->
+                <!--<xs:enumeration value="ROSHEN"/>-->
+            <!--</xs:restriction>-->
+        <!--</xs:simpleType>-->
+    <!--</xs:element>-->
+
+    <!--<xs:element name="filling-weight">-->
+        <!--<xs:simpleType>-->
+            <!--<xs:restriction base="xs:int">-->
+                <!--<xs:minInclusive value="0"/>-->
+            <!--</xs:restriction>-->
+        <!--</xs:simpleType>-->
+    <!--</xs:element>-->
+
+    <!--<xs:element name="chocolate-type">-->
+        <!--<xs:simpleType>-->
+            <!--<xs:restriction base="xs:string">-->
+                <!--<xs:enumeration value="MILK"/>-->
+                <!--<xs:enumeration value="DARK"/>-->
+                <!--<xs:enumeration value="BLACK"/>-->
+            <!--</xs:restriction>-->
+        <!--</xs:simpleType>-->
+    <!--</xs:element>-->
+
+    <!--<xs:element name="candies">-->
+        <!--<xs:complexType>-->
+            <!--<xs:sequence>-->
+                <!--<xs:element ref="candies:filled-sweet" maxOccurs="unbounded" minOccurs="0"/>-->
+                <!--<xs:element ref="candies:chocolate-sweet" maxOccurs="unbounded" minOccurs="0"/>-->
+            <!--</xs:sequence>-->
+        <!--</xs:complexType>-->
+    <!--</xs:element>-->
+<!--</xs:schema>-->
+
+
+
+
+
+
+

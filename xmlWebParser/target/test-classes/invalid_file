@@ -1,0 +1,27 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<candies xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.example.com/candies"
+         xsi:schemaLocation="http://www.example.com/candies scheme.xsd">
+
+    <filled-sweet name = "Golden Key">
+        <energy>-100</energy>
+        <value>
+            <proteins>-15</proteins>
+            <fats>-15</fats>
+            <carbohydrates>15</carbohydrates>
+        </value>
+        <production>KOMMUNARKA</production>
+        <filling-weight>-10</filling-weight>
+    </filled-sweet>
+
+    <chocolate-sweet name="Alenka">
+        <energy>150</energy>
+        <value>
+            <proteins>15</proteins>
+            <fats>15</fats>
+            <carbohydrates>15</carbohydrates>
+        </value>
+        <chocolate-type>MILK</chocolate-type>
+        <production>KOMMUNARKA</production>
+    </chocolate-sweet>
+</candies>
